@@ -22,7 +22,7 @@ var count Counter // initialize counter to zero
 
 func connectDB() (*mongo.Client, error) {
 	// Connect to MongoDB
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+	clientOptions := options.Client().ApplyURI("mongodb://db:27017")
 	client, err := mongo.Connect(context.Background(), clientOptions)
 	if err != nil {
 		return nil, err
