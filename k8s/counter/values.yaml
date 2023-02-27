@@ -1,2 +1,7 @@
 frontend:
   image: moonblade/frontend:latest
+backend:
+  image: moonblade/counter:latest
+db:
+  image: moonblade/db:latest
+

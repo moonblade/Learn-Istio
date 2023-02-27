@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: db
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: db
   replicas: 1
   template:
     metadata:
       labels:
-        app: frontend
+        app: db
     spec:
       containers:
-        - name: frontend
-          image: {{ .Values.frontend.image }}
+        - name: db
+          image: {{ .Values.db.image }}
           ports:
-            - containerPort: 80
+            - containerPort: 27017
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: db
 spec:
   selector:
-    app: frontend
+    app: db
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 27017
+      targetPort: 27017 
   type: ClusterIP
 

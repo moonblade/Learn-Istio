@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: backend
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: backend
   replicas: 1
   template:
     metadata:
       labels:
-        app: frontend
+        app: backend
     spec:
       containers:
-        - name: frontend
-          image: {{ .Values.frontend.image }}
+        - name: backend
+          image: {{ .Values.backend.image }}
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: counter
 spec:
   selector:
-    app: frontend
+    app: backend
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 8080
+      targetPort: 8080
   type: ClusterIP
 
