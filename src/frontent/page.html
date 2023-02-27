@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="loadCount()">
+	<h1>Counter App</h1>
+	<button onclick="increment()">Increment</button>
+	<button onclick="decrement()">Decrement</button>
+	<p id="counter">0</p>
+	
+	<script>
+		var counter = 0; // initialize counter to 0
+
+		function increment() {
+			counter++;
+			document.getElementById("counter").innerHTML = counter;
+			fetch('/increase');
+		}
+
+		function decrement() {
+			counter--;
+			document.getElementById("counter").innerHTML = counter;
+			fetch('/decrease');
+		}
+
+		function loadCount() {
+			fetch('/count')
+			.then(response => response.json())
+			.then(data => {
+				counter = data.count;
+				document.getElementById("counter").innerHTML = counter;
+			});
+		}
+	</script>
+</body>
+</html>
+
