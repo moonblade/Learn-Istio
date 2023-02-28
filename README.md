@@ -17,8 +17,8 @@ Creat a chart for the above app to function in
 
 4. Test out istio features
 
-  1. Add ingress gateway through istio and use it to communicate with pods
-  2. Use istio to monitor network api calls
-  3. Use istio to get metrics in grafana
+  - Add ingress gateway through istio and use it to communicate with pods
+  - Use istio to monitor network api calls
+  - Use istio to get metrics in grafana
 
 
