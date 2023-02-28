@@ -12,4 +12,6 @@ Use chatgpt to speed through this step
 
 Creat a chart for the above app to function in
 
+3. Add istio
+
 
