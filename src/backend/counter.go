@@ -107,6 +107,15 @@ func decreaseHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(count)
 }
 
+func enableCors(next http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		next(w, r)
+	}
+}
+
 func main() {
 	err := initializeCount()
 	if err != nil {
@@ -114,9 +123,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	http.HandleFunc("/count", countHandler)
-	http.HandleFunc("/increase", increaseHandler)
-	http.HandleFunc("/decrease", decreaseHandler)
+	http.HandleFunc("/count", enableCors(countHandler))
+	http.HandleFunc("/increase", enableCors(increaseHandler))
+	http.HandleFunc("/decrease", enableCors(decreaseHandler))
 
 	fmt.Println("Listening on port 8080...")
 	http.ListenAndServe(":8080", nil)

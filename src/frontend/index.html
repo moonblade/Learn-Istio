@@ -31,7 +31,7 @@
 			fetch(backend + '/count')
 			.then(response => response.json())
 			.then(data => {
-				counter = data.count;
+				counter = data.Value;
 				document.getElementById("counter").innerHTML = counter;
 			});
 		}
