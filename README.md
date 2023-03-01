@@ -20,7 +20,8 @@ Creat a chart for the above app to function in
   - Use istio to monitor network api calls
   - Use istio to get metrics in grafana
   - mesh workloads
-  - 
+  - envoy access logs
+  - canary deployment to different version with different weights
 
 
 
