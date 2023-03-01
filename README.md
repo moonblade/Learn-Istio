@@ -30,7 +30,7 @@ Creat a chart for the above app to function in
 
 Frontend
 
-![frontend](resources/frontend.png)
+<img width="220" alt="image" src="https://user-images.githubusercontent.com/9362269/222069280-74bcdb55-c698-4a9e-900e-cb8b0151f003.png">
 
 
 
