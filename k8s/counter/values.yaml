@@ -2,6 +2,7 @@ frontend:
   image: moonblade/frontend:latest
 backend:
   image: moonblade/counter:latest
+  image2: moonblade/counter:v2
 db:
   image: moonblade/db:latest
 
